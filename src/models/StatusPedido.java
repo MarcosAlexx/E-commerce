@@ -1,4 +1,8 @@
 package models;
 
-public class StatusPedido {
+public enum StatusPedido {
+    CRIADO,
+    PAGO,
+    ENVIADO,
+    CANCELADO
 }
