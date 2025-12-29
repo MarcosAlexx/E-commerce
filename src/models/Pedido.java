@@ -74,7 +74,7 @@ public class Pedido {
         }
     }
 
-    public void calculaTotalPedidos(){
+    public void calculaTotalPedidos(Cliente cliente){
         double total = 0;
         for (ItemPedido item : itensDoPedido) {
             total += item.getSubtotal();
@@ -100,7 +100,7 @@ public class Pedido {
     }
     
 
-    public void listaItensPedido() {
+    public void listaItensPedido(Cliente cliente) {
         if (itensDoPedido.isEmpty()) {
             System.out.println("Nenhum item no pedido.");
             return;
@@ -108,7 +108,8 @@ public class Pedido {
 
         System.out.println("Itens do pedido:");
         for (ItemPedido item : itensDoPedido) {
-            System.out.println("Produto: " + item.getProduto() + ", Quantidade: " + item.getQuantidade() + " , Preço do Pedido: R$ " + item.getPrecoMomentoCompra());
+            Produto produto = item.getProduto();
+            System.out.println("Produto: " + produto.getNome() + ", Quantidade: " + item.getQuantidade() + " , Preço do Pedido: R$ " + item.getPrecoMomentoCompra());
         }
     }
     
